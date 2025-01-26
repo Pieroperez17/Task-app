@@ -41,7 +41,6 @@ export function AnimatedGameCard({ game, index }) {
             <GameCard game={game}/>
         </Animated.View>
     );
-
 }   
 
 

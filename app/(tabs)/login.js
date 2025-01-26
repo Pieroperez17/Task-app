@@ -7,13 +7,13 @@ import { useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const userRegistered = null;
+export var user_register = 'dwa';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [users, setUsers] = useState([]);
-    const [valor, setValor] = useState('')
+    
 
 
     useEffect(() => {
@@ -31,6 +31,7 @@ export default function Login() {
         users.map((user) => {
             if (user.email == email && user.password == password) {
                 saveData();
+                user_register = user.email;
             }
         });
         if (email === '' || password === '') {
@@ -48,6 +49,8 @@ export default function Login() {
         loadData();
     };
 
+
+    const [valor, setValor] = useState('')
     const loadData = async () => {
         try {
             const value = await AsyncStorage.getItem('Registro');
@@ -58,7 +61,7 @@ export default function Login() {
         } catch (error) {
             console.error('Error al recuperar los datos', error);
         }
-        };
+    };
 
     
 

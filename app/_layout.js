@@ -8,13 +8,13 @@ export default function Layout() {
         <View style={{ flex: 1, backgroundColor: "black" }}>
             <Stack
                 screenOptions={{
-                headerStyle: { backgroundColor: "black" },
-                headerTintColor: "white",
-                headerTitle: "",
-                headerLeft: () => <Logo />,
-                headerRight: () => ''
+                    headerStyle: { backgroundColor: "black" },
+                    headerTintColor: "white",
+                    headerTitle: "",
+                    headerLeft: () => <Logo />,
+                    headerRight: () => ''
                 }}
             /> 
-            </View>
+        </View>
     );
 }

@@ -1,21 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'expo-router';
-import { FlatList, Text, View, ActivityIndicator, Pressable, ScrollView } from 'react-native';
+import { FlatList, Text, View, ActivityIndicator, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { getLatestGames } from '../lib/metacritic';
 import { OpcionesInicio } from './OpcionesContainer';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { AnimatedGameCard } from './GameCard';
-import { CircleInfoIcon } from './Icons';
-import { Logo } from './Logo';
 import { Screen } from './Screen';
 import { supabase } from '../lib/supabase';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
+import { user_register } from '../app/(tabs)/login';
+import { NewComponent } from './NewsComponent';
 
 export function Main() {
     const [users, setUsers] = useState([]);     
     const [valor, setValor] = useState(null);
+    const [news, setNews] = useState([]);
 
     useEffect(() => {
         const fechUsers = async () => {
@@ -24,12 +21,16 @@ export function Main() {
             else setUsers(data)
         }
         fechUsers()
-        
+        const fechNews = async () => {
+            const{data,error}= await supabase.from('News').select('*')
+            if (error) console.log('error',error)
+            else setNews(data)
+        }
+        fechNews()
     }, []);
 
     
-    
-    
+
     
     return (
         <Screen>
@@ -37,14 +38,19 @@ export function Main() {
             {users.length === 0 ? (
                     <Text style={{color: 'white'}}>No encontrado</Text>
             ):(
-                <ScrollView>
-                    <View>
-                        <Text className="text-white text-2xl font-bold mt-1 mb-3 ml-4 ">Hola Sebastian 👋</Text>
-                        <OpcionesInicio/>
-                        <Text className="text-white text-2xl font-bold mt-1 mb-3 ml-4 ">Noticias</Text>
-                        <Text className="text-white text-2xl font-bold mt-1 mb-3 ml-4 ">{valor}</Text>
-                    </View>
-                </ScrollView>
+                <FlatList
+                    data={news}
+                    keyExtractor={(item) => item.id.toString()}
+                    ListHeaderComponent={() => (
+                        <View>
+                            <Text className="text-white text-2xl font-bold mt-1 mb-3 ml-4">Hola Sebastian 👋</Text>
+                            <OpcionesInicio />
+                            <Text className="text-white text-2xl font-bold mt-4 mb-3 ml-4">{user_register}</Text>
+                            <Text className="text-white text-2xl font-bold mt-4 mb-3 ml-4">Noticias Del Dia 📰</Text>
+                        </View>
+                    )}
+                    renderItem={({ item , index}) => <NewComponent noticia={item} index={index} />}
+                />
             )}
         </Screen>
     );
