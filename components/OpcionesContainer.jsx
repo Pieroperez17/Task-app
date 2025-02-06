@@ -5,35 +5,35 @@ import { AnimatedLinkComponent } from "./LinkInicial";
 export function OpcionesInicio() {
     return (
         <View style={styles.card}>
-            <AnimatedLinkComponent href="/task/datitos" text="Nueva Tarea" index={1}>
+            <AnimatedLinkComponent href="/options/datitos" text="Mis Tareas" index={1}>
                 <IconDefauld name="tasks" color="#340e67"/>
             </AnimatedLinkComponent>
 
-            <AnimatedLinkComponent href="/task/federico" text="Nuevo Grupo" index={2}>
+            <AnimatedLinkComponent href="/options/federico" text="Nuevo Grupo" index={2}>
                 <IconDefauld name="group" color="#340e67"/>
             </AnimatedLinkComponent>
 
-            <AnimatedLinkComponent href="/task/datitos" text="Mensajería" index={3}>
+            <AnimatedLinkComponent href="/options/datitos" text="Mensajería" index={3}>
                 <IconDefauld name="send" color="#340e67"/>
             </AnimatedLinkComponent>
 
-            <AnimatedLinkComponent href="/task/federico" text="Salir" index={4}>
+            <AnimatedLinkComponent href="/options/federico" text="Salir" index={4}>
                 <IconDefauld name="sign-out" color="#340e67"/>
             </AnimatedLinkComponent>
 
-            <AnimatedLinkComponent href="/task/federico" text="Gestionar Finanzas" index={2}>
+            <AnimatedLinkComponent href="/options/federico" text="Gestionar Finanzas" index={2}>
                 <IconDefauld name="group" color="#340e67"/>
             </AnimatedLinkComponent>
 
-            <AnimatedLinkComponent href="/task/datitos" text="Agregar Fecha" index={3}>
+            <AnimatedLinkComponent href="/options/datitos" text="Agregar Fecha" index={3}>
                 <IconDefauld name="calendar" color="#340e67"/>
             </AnimatedLinkComponent>
 
-            <AnimatedLinkComponent href="/task/federico" text="Notas" index={4}>
+            <AnimatedLinkComponent href="/options/federico" text="Notas" index={4}>
                 <IconDefauld name="sticky-note" color="#340e67"/>
             </AnimatedLinkComponent>
 
-            <AnimatedLinkComponent href="/task/datitos" text="Reportes Financieros" index={5}>
+            <AnimatedLinkComponent href="/options/datitos" text="Reportes Financieros" index={5}>
                 <IconDefauld name="line-chart" color="#340e67"/>
             </AnimatedLinkComponent>
 

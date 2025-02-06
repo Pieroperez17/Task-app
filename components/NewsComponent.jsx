@@ -7,8 +7,8 @@ const NewComponent_United = ({ noticia }) => (
     <Link href={`/news/${noticia.id}`} asChild>
         <TouchableOpacity>
             <View 
-                className=" flex-row items-center justify-center mx-auto rounded-xl mb-7 p-2" 
-                style={{ width: '95%' , backgroundColor: '#19191B'}}
+                className=" flex-row items-center justify-center mx-auto rounded-xl mb-7 p-2 w-11/12" 
+                style={{ backgroundColor: '#19191B'}}
             >
                 <Image className="rounded-xl" source={{ uri: noticia.image1 }} style={{ width: 150, height: 100 }} />
                 <View className="flex-shrink pl-2">

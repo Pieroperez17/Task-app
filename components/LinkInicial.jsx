@@ -1,16 +1,15 @@
 import { useEffect, useRef } from 'react';
-import { Text, View, Image, StyleSheet,Animated, Pressable ,TouchableOpacity} from 'react-native';
-import { Score } from './Score';
+import { Text, View, Image, StyleSheet,Animated, Constains ,TouchableOpacity} from 'react-native';
 import { Link } from 'expo-router';
-import { CoheteIcon } from './Icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export function LinkComponent({ href, text ,children}) {
+    
     return (
-        <Link href={`${href}`} asChild >
-            <TouchableOpacity className="items-center justify-center"> 
-                <View style={styles.button}>
+        <Link  href={`${href}`} asChild >
+            <TouchableOpacity className="items-center justify-center" > 
+                <View style={styles.button} className=''>
                     {children}
                     <Text style={styles.text} >{text}</Text>
                 </View>
@@ -34,7 +33,7 @@ export function ExitComponent({text ,children}) {
 
     return (
         <TouchableOpacity className="items-center justify-center" onPress={removeData}>
-            <View style={styles.button}>
+            <View style={styles.button} >
                 {children}
                 <Text style={styles.text} >{text}</Text>
             </View>

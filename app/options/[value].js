@@ -4,15 +4,11 @@ import { useLocalSearchParams, Stack } from "expo-router";
 import { Screen } from "../../components/Screen";
 import { getGameDetails } from "../../lib/metacritic";
 import { useEffect, useState } from "react";
-import {Score} from "../../components/Score";
 
 export default function TaskNew(){
-    const { task } = useLocalSearchParams();
-
-
-
-    
-        if(task === 'datitos'){
+    const { value } = useLocalSearchParams();
+        console.log(value)
+        if(value === 'datitos'){
             return (
             <Screen>
                 <Stack.Screen
@@ -27,11 +23,37 @@ export default function TaskNew(){
                 />
                 <View>
                     {
-                        task=== null ? (
+                        value=== null ? (
                             <ActivityIndicator color={"#ffee00"} size={"large"} />
                         ) :(
                             <Text className=" text-white font-bold mb-8 text-2xl text-center">
-                                {task}
+                                {value}
+                            </Text>
+                        )
+                    }
+                    
+                </View>
+            </Screen>
+        )}if(value === 'datitos'){
+            return (
+            <Screen>
+                <Stack.Screen
+                    options={{
+                        headerStyle: { backgroundColor: "#A77CFC" },
+                        headerTintColor: "black",
+                        headerLeft: () => {},
+                        headerTitle: `Data`,
+                        headerRight: () => {},
+                        contentStyle: { backgroundColor: 'black' },
+                }}
+                />
+                <View>
+                    {
+                        value=== null ? (
+                            <ActivityIndicator color={"#ffee00"} size={"large"} />
+                        ) :(
+                            <Text className=" text-white font-bold mb-8 text-2xl text-center">
+                                {value}
                             </Text>
                         )
                     }
@@ -53,11 +75,11 @@ export default function TaskNew(){
                 />
                 <View>
                     {
-                        task=== null ? (
+                        value=== null ? (
                             <ActivityIndicator color={"#ffee00"} size={"large"} />
                         ) :(
                             <Text className=" text-white font-bold mb-8 text-2xl text-center">
-                                hello {task}
+                                hello {value}
                             </Text>
                         )
                     }
@@ -65,5 +87,6 @@ export default function TaskNew(){
                 </View>
             </Screen>
         )}
+        
     
 }
