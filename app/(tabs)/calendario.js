@@ -75,38 +75,10 @@ export default function CalendarioView() {
             {valor === null ? (
                 <DontFount Page={'Calendario'} />
             ):(
-                <FlatList
-                    data={news}
-                    keyExtractor={(item) => item.id.toString()}
-                    ListHeaderComponent={() => (
-                        <View>
-                        <Text className="text-white text-2xl font-bold mt-1 mb-3 ml-4">Hola {usuario.name} 👋</Text>
-                            <OpcionesInicio />
-                            <Text className="text-white text-2xl font-bold mt-4 mb-3 ml-4">Tareas {valor} 📝</Text>
-                            {
-                                tareas.length === 0 ? (
-                                    <View className="justify-center mx-auto items-center text-center w-11/12  py-3 rounded-lg" style={{backgroundColor: "#19191B"}} >
-                                        <Text className="text-white text-xl font-bold mt-1 mb-1 ">✅ No hay tareas pendientes</Text>
-                                    </View>
-                                ) : (
-                                    <FlatList
-                                        data={tareas}
-                                        keyExtractor={(item) => item.id.toString()}
-                                        renderItem={({ item }) => (
-                                            <View className="justify-center mx-auto items-center text-center w-11/12 mt-4 pb-2 rounded-lg" style={{backgroundColor: "#19191B"}}>
-                                                <Text className="text-white text-xl font-bold mx-4 ">{item.task}</Text>
-                                                <Text className="text-slate-500 text-sm font-bold mx-4 ">{item.time}</Text>
-                                                <Text className="text-white mt-4 text-sm  font-bold mx-4 ">{item.content}</Text>
-                                            </View>
-                                        )}
-                                    />
-                                )
-                            }
-                            <Text className="text-white text-2xl font-bold mt-4 mb-3 ml-4">Noticias Del Dia 📰</Text>
-                        </View>
-                    )}
-                    renderItem={({ item , index}) => <NewComponent noticia={item} index={index} />}
-                />
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={{color: 'white'}}>Pagina en construcion ...</Text>
+                    <Text style={{color: 'white'}}>{valor}</Text>
+                </View>
             )}
         </Screen>
     );

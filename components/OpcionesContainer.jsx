@@ -5,7 +5,7 @@ import { AnimatedLinkComponent } from "./LinkInicial";
 export function OpcionesInicio() {
     return (
         <View style={styles.card}>
-            <AnimatedLinkComponent href="/options/datitos" text="Mis Tareas" index={1}>
+            <AnimatedLinkComponent href="/options/misTareas" text="Mis Tareas" index={1}>
                 <IconDefauld name="tasks" color="#340e67"/>
             </AnimatedLinkComponent>
 

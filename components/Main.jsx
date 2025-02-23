@@ -17,11 +17,16 @@ export function Main() {
     const [valor, setValor] = useState(null);
     const [news, setNews] = useState([]);
     const [usuario, setUsuario] = useState('');
-    //const [nombre, setNombre] = useState('');
+    const [usersGlobal, setUsersGlobal] = useState([]);
 
     useEffect(() => {
         const fechTareas = async () => {
-            const{data,error}= await supabase.from('Tasks').select('*').contains('miembros',[valor]);
+            const{data,error}= await supabase
+                .from('Tasks')
+                .select('*')
+                .contains('miembros',[valor])
+                .order('N_pendiente', { ascending: true })
+                .limit(2);
             if (error) console.log('error',error)
             else setTareas(data)
         }
@@ -32,8 +37,7 @@ export function Main() {
                     console.log('error', error);
                 } else {
                     setUsuario(data.find((element) => element.id === valor));
-                    //console.log(data)
-                    //setNombre(data[0].name)
+                    setUsersGlobal(data)
                 }
             }
         }
@@ -70,6 +74,12 @@ export function Main() {
         return () => clearInterval(interval);
     }, []);     
 
+    var nombre = ''
+    for (let i = 0; i < usersGlobal.length; i++) {
+        if (usersGlobal[i].id == valor) {
+            nombre = usersGlobal[i].name;
+        }
+    }
 
     return (
         <Screen>
@@ -78,12 +88,11 @@ export function Main() {
             ):(
                 <FlatList
                     refreshing={true}
-                    
                     data={news}
                     keyExtractor={(item) => item.id.toString()}
                     ListHeaderComponent={() => (
                         <View>
-                        <Text className="text-white text-2xl font-bold mt-1 mb-3 ml-4">Hola {usuario.name} 👋</Text>
+                            <Text className="text-white text-2xl font-bold mt-1 mb-3 ml-4">Bienvenido {nombre} 👋</Text>
                             <OpcionesInicio />
                             <Text className="text-white text-2xl font-bold mt-4 mb-3 ml-4">Pendientes 📝</Text>
                             {

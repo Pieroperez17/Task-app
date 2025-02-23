@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import {Config_User_loguin} from '../../components/Page/Config_User_loguin';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -93,9 +93,7 @@ export default function Login() {
     return (
         <Screen>
             {valor != null ? (
-                <View className="justify-center items-center text-center w-full h-full" >
-                    <Text style={{color: 'white'}}>Ajustes de usuario</Text>
-                </View>
+                <Config_User_loguin id={valor}/>
             ):(
                 <ScrollView>
 
