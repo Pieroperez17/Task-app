@@ -66,13 +66,8 @@ export function Main() {
     };
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            loadData();
-        }, 100); // 0.1 segundos = 100 milisegundos
-    
-        // Limpieza del intervalo cuando el componente se desmonte
-        return () => clearInterval(interval);
-    }, []);     
+        loadData()
+    }, [valor]);     
 
     var nombre = ''
     for (let i = 0; i < usersGlobal.length; i++) {

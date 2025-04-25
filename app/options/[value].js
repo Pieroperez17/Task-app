@@ -27,150 +27,197 @@ export default function TaskNew(){
         }
     };
     useEffect(() => {
-        const interval = setInterval(() => {
-            loadData();
-        }, 100); // 0.1 segundos = 100 milisegundos
-    
-        // Limpieza del intervalo cuando el componente se desmonte
-        return () => clearInterval(interval);
-    }, []);    
+        loadData();
+    }, [valor]);    
 
 
     const { value } = useLocalSearchParams();
         
-        if(value === 'misTareas'){
-            return (
-            <Screen>
-                <Stack.Screen
-                    options={{
-                        headerStyle: { backgroundColor: "#A77CFC" },
-                        headerTintColor: "black",
-                        headerLeft: () => {},
-                        headerTitle: `Mis Tareas`,
-                        headerRight: () => {},
-                        contentStyle: { backgroundColor: 'black' },
-                }}
-                />
-                <View>
-                    {
-                        value=== null ? (
-                            <ActivityIndicator color={"#ffee00"} size={"large"} />
-                        ) :(
-                            <MyTasks id={valor} />
-                        )
-                    }
-                    
-                </View>
-            </Screen>
-        )}
-        if(value === 'datitos'){
-            return (
-            <Screen>
-                <Stack.Screen
-                    options={{
-                        headerStyle: { backgroundColor: "#A77CFC" },
-                        headerTintColor: "black",
-                        headerLeft: () => {},
-                        headerTitle: `Data`,
-                        headerRight: () => {},
-                        contentStyle: { backgroundColor: 'black' },
-                }}
-                />
-                <View>
-                    {
-                        value=== null ? (
-                            <ActivityIndicator color={"#ffee00"} size={"large"} />
-                        ) :(
+    if(value === 'misTareas'){
+        return (
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: "#A77CFC" },
+                    headerTintColor: "black",
+                    headerLeft: () => {},
+                    headerTitle: `Mis Tareas`,
+                    headerRight: () => {},
+                    contentStyle: { backgroundColor: 'black' },
+            }}
+            />
+            <View>
+                {
+                    value=== null ? (
+                        <ActivityIndicator color={"#ffee00"} size={"large"} />
+                    ) :(
+                        <MyTasks id={valor} />
+                    )
+                }
+                
+            </View>
+        </Screen>
+    )}
+    if(value === 'datitos'){
+        return (
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: "#A77CFC" },
+                    headerTintColor: "black",
+                    headerLeft: () => {},
+                    headerTitle: `Data`,
+                    headerRight: () => {},
+                    contentStyle: { backgroundColor: 'black' },
+            }}
+            />
+            <View>
+                {
+                    value=== null ? (
+                        <ActivityIndicator color={"#ffee00"} size={"large"} />
+                    ) :(
+                        <Text className=" text-white font-bold mb-8 text-2xl text-center">
+                            {value}
+                        </Text>
+                    )
+                }
+                
+            </View>
+        </Screen>
+    )}
+    if(value === 'datitos'){
+        return (
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: "#A77CFC" },
+                    headerTintColor: "black",
+                    headerLeft: () => {},
+                    headerTitle: `Data`,
+                    headerRight: () => {},
+                    contentStyle: { backgroundColor: 'black' },
+            }}
+            />
+            <View>
+                {
+                    value=== null ? (
+                        <ActivityIndicator color={"#ffee00"} size={"large"} />
+                    ) :(
+                        <Text className=" text-white font-bold mb-8 text-2xl text-center">
+                            {value}
+                        </Text>
+                    )
+                }
+                
+            </View>
+        </Screen>
+    )}if(value === 'datitos'){
+        return (
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: "#A77CFC" },
+                    headerTintColor: "black",
+                    headerLeft: () => {},
+                    headerTitle: `Data`,
+                    headerRight: () => {},
+                    contentStyle: { backgroundColor: 'black' },
+            }}
+            />
+            <View>
+                {
+                    value=== null ? (
+                        <ActivityIndicator color={"#ffee00"} size={"large"} />
+                    ) :(
+                        <Text className=" text-white font-bold mb-8 text-2xl text-center">
+                            {value}
+                        </Text>
+                    )
+                }
+                
+            </View>
+        </Screen>
+    )}if(value === 'deleteTask'){
+        return (
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: "#A77CFC" },
+                    headerTintColor: "black",
+                    headerLeft: () => {},
+                    headerTitle: `Eliminar Tarea`,
+                    headerRight: () => {},
+                    contentStyle: { backgroundColor: 'black' },
+            }}
+            />
+            <View>
+                {
+                    value=== null ? (
+                        <ActivityIndicator color={"#ffee00"} size={"large"} />
+                    ) :(
+                        <Text className=" text-white font-bold mb-8 text-2xl text-center">
+                            {value}
+                        </Text>
+                    )
+                }
+                
+            </View>
+        </Screen>
+    )}if(value === 'addTask'){
+        return (
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: "#A77CFC" },
+                    headerTintColor: "black",
+                    headerLeft: () => {},
+                    headerTitle: `Agregar Tarea`,
+                    headerRight: () => {},
+                    contentStyle: { backgroundColor: 'black' },
+            }}
+            />
+            <View>
+                {
+                    value=== null ? (
+                        <ActivityIndicator color={"#ffee00"} size={"large"} />
+                    ) :(
+                        <Text className=" text-white font-bold mb-8 text-2xl text-center">
+                            pagina para graficos
+                        </Text>
+                    )
+                }
+                
+            </View>
+        </Screen>
+    )}else{
+        return (
+        <Screen>
+            <Stack.Screen
+                options={{
+                    headerStyle: { backgroundColor: "#A77CFC" },
+                    headerTintColor: "black",
+                    headerLeft: () => {},
+                    headerTitle: `No se econtro la pagina :(`,
+                    headerRight: () => {},
+                    contentStyle: { backgroundColor: 'white' },
+            }}
+            />
+            <View>
+                {
+                    value=== null ? (
+                        <ActivityIndicator color={"#ffee00"} size={"large"} />
+                    ) :(
+                        <View className="justify-center items-center text-center w-full h-full" >
                             <Text className=" text-white font-bold mb-8 text-2xl text-center">
-                                {value}
+                                La pagina '{value}' no se encontró
                             </Text>
-                        )
-                    }
-                    
-                </View>
-            </Screen>
-        )}
-        if(value === 'datitos'){
-            return (
-            <Screen>
-                <Stack.Screen
-                    options={{
-                        headerStyle: { backgroundColor: "#A77CFC" },
-                        headerTintColor: "black",
-                        headerLeft: () => {},
-                        headerTitle: `Data`,
-                        headerRight: () => {},
-                        contentStyle: { backgroundColor: 'black' },
-                }}
-                />
-                <View>
-                    {
-                        value=== null ? (
-                            <ActivityIndicator color={"#ffee00"} size={"large"} />
-                        ) :(
-                            <Text className=" text-white font-bold mb-8 text-2xl text-center">
-                                {value}
-                            </Text>
-                        )
-                    }
-                    
-                </View>
-            </Screen>
-        )}if(value === 'datitos'){
-            return (
-            <Screen>
-                <Stack.Screen
-                    options={{
-                        headerStyle: { backgroundColor: "#A77CFC" },
-                        headerTintColor: "black",
-                        headerLeft: () => {},
-                        headerTitle: `Data`,
-                        headerRight: () => {},
-                        contentStyle: { backgroundColor: 'black' },
-                }}
-                />
-                <View>
-                    {
-                        value=== null ? (
-                            <ActivityIndicator color={"#ffee00"} size={"large"} />
-                        ) :(
-                            <Text className=" text-white font-bold mb-8 text-2xl text-center">
-                                {value}
-                            </Text>
-                        )
-                    }
-                    
-                </View>
-            </Screen>
-        )}else{
-            return (
-            <Screen>
-                <Stack.Screen
-                    options={{
-                        headerStyle: { backgroundColor: "#A77CFC" },
-                        headerTintColor: "black",
-                        headerLeft: () => {},
-                        headerTitle: `No se econtro la pagina :(`,
-                        headerRight: () => {},
-                        contentStyle: { backgroundColor: 'white' },
-                }}
-                />
-                <View>
-                    {
-                        value=== null ? (
-                            <ActivityIndicator color={"#ffee00"} size={"large"} />
-                        ) :(
-                            <View className="justify-center items-center text-center w-full h-full" >
-                                <Text className=" text-white font-bold mb-8 text-2xl text-center">
-                                    La pagina '{value}' no se encontró
-                                </Text>
-                            </View>
-                        )
-                    }
-                    
-                </View>
-            </Screen>
-        )}
+                        </View>
+                    )
+                }
+                
+            </View>
+        </Screen>
+    )}
         
     
 }
